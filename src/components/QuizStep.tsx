@@ -10,7 +10,7 @@ interface Props {
 export default function QuizStep({ question, onSelect }: Props) {
   return (
     <div className="w-full max-w-xl mx-auto">
-      <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-8">
+      <h2 className="text-xl md:text-2xl font-bold text-ink text-center mb-8 tracking-tight">
         {question.text}
       </h2>
       <div className="grid gap-3">
@@ -18,23 +18,10 @@ export default function QuizStep({ question, onSelect }: Props) {
           <button
             key={opt.id}
             onClick={() => onSelect(opt.id)}
-            className="w-full text-left px-6 py-4 rounded-xl border transition-all duration-200 hover:scale-[1.02] active:scale-100"
-            style={{
-              backgroundColor: "#1A1A2E",
-              borderColor: "#00B4D8" + "44",
-              color: "#e2e8f0",
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "#00B4D8";
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#00B4D8" + "18";
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "#00B4D8" + "44";
-              (e.currentTarget as HTMLButtonElement).style.backgroundColor = "#1A1A2E";
-            }}
+            className="w-full text-left px-6 py-4 rounded-2xl border border-black/10 bg-white text-ink transition-colors hover:border-accent hover:bg-accent/5"
           >
             {opt.label.split("\n").map((line, i) => (
-              <span key={i} className={i === 0 ? "font-semibold block" : "block text-sm mt-0.5 text-slate-400"}>
+              <span key={i} className={i === 0 ? "font-semibold block" : "block text-sm mt-0.5 text-subtle"}>
                 {line}
               </span>
             ))}
